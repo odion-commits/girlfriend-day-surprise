@@ -1,0 +1,839 @@
+```
+/* ===========================
+   LUXURY GIRLFRIEND DAY THEME
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+
+    background:
+    radial-gradient(circle at top left,#fff7fb 0%,#fffdfd 45%,#fff7f8 100%);
+
+    color:#3c2d32;
+    position:relative;
+
+}
+
+/* ===========================
+BACKGROUND GLOWS
+=========================== */
+
+.background-glow{
+
+    position:fixed;
+    border-radius:50%;
+    filter:blur(130px);
+    z-index:-2;
+
+}
+
+.glow1{
+
+    width:420px;
+    height:420px;
+
+    background:#ffdbe9;
+
+    top:-120px;
+    left:-120px;
+
+    animation:floatGlow 10s ease-in-out infinite;
+
+}
+
+.glow2{
+
+    width:380px;
+    height:380px;
+
+    background:#ffe8ba;
+
+    bottom:-150px;
+    right:-80px;
+
+    animation:floatGlow 12s ease-in-out infinite reverse;
+
+}
+
+@keyframes floatGlow{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(35px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+/* ===========================
+SPARKLES
+=========================== */
+
+.sparkles{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+background-image:
+
+radial-gradient(#ffffff 1px,transparent 1px),
+radial-gradient(#ffe6a7 1px,transparent 1px),
+radial-gradient(#ffd2e1 1px,transparent 1px);
+
+background-size:
+180px 180px,
+220px 220px,
+260px 260px;
+
+animation:sparkleMove 18s linear infinite;
+
+opacity:.55;
+
+z-index:-1;
+
+}
+
+@keyframes sparkleMove{
+
+from{
+
+background-position:
+0 0,
+0 0,
+0 0;
+
+}
+
+to{
+
+background-position:
+180px 180px,
+220px 220px,
+260px 260px;
+
+}
+
+}
+
+/* ===========================
+LAYOUT
+=========================== */
+
+.container{
+
+width:min(1180px,92%);
+margin:auto;
+
+padding-top:70px;
+padding-bottom:60px;
+
+text-align:center;
+
+}
+
+/* ===========================
+TEXT
+=========================== */
+
+.small-title{
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+font-size:.85rem;
+
+color:#b88b28;
+
+margin-bottom:18px;
+
+font-weight:600;
+
+}
+
+h1{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:4rem;
+
+font-weight:700;
+
+line-height:1.05;
+
+margin-bottom:28px;
+
+color:#5c3b46;
+
+}
+
+.description{
+
+max-width:700px;
+
+margin:auto;
+
+line-height:2;
+
+font-size:1.08rem;
+
+color:#6d5c63;
+
+}
+
+.notice{
+
+display:inline-block;
+
+margin-top:38px;
+
+padding:15px 34px;
+
+border-radius:60px;
+
+background:rgba(255,255,255,.55);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,214,230,.7);
+
+box-shadow:
+
+0 15px 45px rgba(255,186,211,.18);
+
+font-weight:600;
+
+color:#b8860b;
+
+}
+
+/* ===========================
+DOORS
+=========================== */
+
+.doors{
+
+display:flex;
+
+justify-content:center;
+
+gap:45px;
+
+margin-top:80px;
+
+flex-wrap:wrap;
+
+}
+
+/* card */
+
+.door-card{
+
+perspective:1400px;
+
+}
+
+/* clickable */
+
+.door{
+
+cursor:pointer;
+
+transition:.45s;
+
+}
+
+.door:hover{
+
+transform:translateY(-14px) scale(1.03);
+
+}
+
+/* frame */
+
+.door-frame{
+
+width:200px;
+height:330px;
+
+padding:10px;
+
+border-radius:28px;
+
+background:
+
+linear-gradient(
+145deg,
+#fff5d2,
+#e9be63,
+#fff8de);
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.10),
+
+0 10px 30px rgba(255,213,88,.30);
+
+}
+
+/* actual door */
+
+.door-panel{
+
+width:100%;
+height:100%;
+
+border-radius:20px;
+
+background:
+
+linear-gradient(
+180deg,
+#fffdfd,
+#ffeef5);
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+position:relative;
+
+overflow:hidden;
+
+transition:
+transform .8s cubic-bezier(.2,.9,.2,1);
+
+transform-origin:left center;
+
+box-shadow:
+
+inset 0 0 0 2px rgba(255,255,255,.6),
+
+inset 0 12px 35px rgba(255,255,255,.8);
+
+}
+
+/* decorative lines */
+
+.door-panel::before{
+
+content:"";
+
+position:absolute;
+
+left:22px;
+right:22px;
+top:28px;
+bottom:28px;
+
+border-radius:14px;
+
+border:2px solid rgba(216,170,67,.65);
+
+}
+
+.door-panel::after{
+
+content:"";
+
+position:absolute;
+
+right:24px;
+
+top:50%;
+
+width:11px;
+height:11px;
+
+border-radius:50%;
+
+background:#d5aa43;
+
+box-shadow:
+
+0 0 12px rgba(212,172,73,.7);
+
+}
+
+/* numbers */
+
+.number{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:4.5rem;
+
+font-weight:700;
+
+color:#d2a340;
+
+}
+
+/* hover shine */
+
+.door-panel:hover{
+
+box-shadow:
+
+0 0 40px rgba(255,213,116,.35),
+
+inset 0 0 0 2px white;
+
+}
+
+.door-panel:hover::before{
+
+border-color:#e5bc60;
+
+}
+
+/* ===========================
+OPEN ANIMATION
+=========================== */
+
+.open .door-panel{
+
+transform:
+
+rotateY(-108deg);
+
+}
+
+/* fade */
+
+.fade{
+
+opacity:.15;
+
+pointer-events:none;
+
+transform:scale(.92);
+
+transition:.5s;
+
+}
+
+/* ===========================
+OVERLAY
+=========================== */
+
+#overlay{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+background:rgba(255,248,251,.75);
+
+backdrop-filter:blur(12px);
+
+z-index:999;
+
+padding:25px;
+
+}
+
+.hidden{
+
+display:none !important;
+
+}
+
+/* ===========================
+RESULT CARD
+=========================== */
+
+.result-card{
+
+width:min(500px,95%);
+
+padding:50px 40px;
+
+border-radius:30px;
+
+background:
+
+rgba(255,255,255,.74);
+
+backdrop-filter:blur(25px);
+
+text-align:center;
+
+box-shadow:
+
+0 40px 80px rgba(0,0,0,.10);
+
+animation:rise .8s ease;
+
+}
+
+@keyframes rise{
+
+from{
+
+transform:
+translateY(60px);
+
+opacity:0;
+
+}
+
+to{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+}
+
+.gift-icon{
+
+font-size:4rem;
+
+margin-bottom:20px;
+
+animation:bounce 2.5s infinite;
+
+}
+
+@keyframes bounce{
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+
+.result-card h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2.6rem;
+
+color:#5f4248;
+
+margin-bottom:12px;
+
+}
+
+#prize{
+
+font-size:3.2rem;
+
+color:#d7a236;
+
+margin-bottom:18px;
+
+}
+
+#message{
+
+line-height:1.9;
+
+color:#666;
+
+margin-bottom:35px;
+
+}
+
+/* ===========================
+BUTTON
+=========================== */
+
+button{
+
+padding:18px 42px;
+
+border:none;
+
+border-radius:999px;
+
+cursor:pointer;
+
+font-size:1rem;
+
+font-weight:600;
+
+background:
+
+linear-gradient(
+135deg,
+#d7a236,
+#f6dd8f);
+
+color:white;
+
+transition:.35s;
+
+box-shadow:
+
+0 18px 40px rgba(212,170,73,.35);
+
+}
+
+button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+
+0 28px 55px rgba(212,170,73,.40);
+
+}
+
+/* ===========================
+LOVE LETTER
+=========================== */
+
+#loveLetter{
+
+position:fixed;
+
+inset:0;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+background:
+
+linear-gradient(
+180deg,
+rgba(255,247,250,.95),
+rgba(255,255,255,.96));
+
+padding:30px;
+
+z-index:1200;
+
+}
+
+.letter{
+
+max-width:620px;
+
+padding:60px;
+
+border-radius:28px;
+
+background:white;
+
+box-shadow:
+
+0 25px 70px rgba(0,0,0,.08);
+
+text-align:center;
+
+animation:rise .8s;
+
+}
+
+.letter h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:3rem;
+
+margin-bottom:30px;
+
+color:#5d3f46;
+
+}
+
+.letter p{
+
+font-size:1.08rem;
+
+line-height:2;
+
+margin-bottom:22px;
+
+color:#666;
+
+}
+
+/* ===========================
+FOOTER
+=========================== */
+
+footer{
+
+text-align:center;
+
+padding:40px;
+
+}
+
+#secretHeart{
+
+font-size:2rem;
+
+cursor:pointer;
+
+transition:.35s;
+
+color:#e69ab8;
+
+display:inline-block;
+
+}
+
+#secretHeart:hover{
+
+transform:scale(1.25);
+
+color:#d789a9;
+
+}
+
+/* ===========================
+CONFETTI
+=========================== */
+
+#confetti{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:1500;
+
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+h1{
+
+font-size:3rem;
+
+}
+
+.door-frame{
+
+width:170px;
+
+height:280px;
+
+}
+
+.number{
+
+font-size:3.5rem;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.container{
+
+padding-top:45px;
+
+}
+
+h1{
+
+font-size:2.35rem;
+
+}
+
+.description{
+
+font-size:.98rem;
+
+line-height:1.8;
+
+}
+
+.notice{
+
+font-size:.9rem;
+
+padding:13px 25px;
+
+}
+
+.doors{
+
+gap:25px;
+
+}
+
+.door-frame{
+
+width:145px;
+
+height:240px;
+
+}
+
+.result-card{
+
+padding:40px 25px;
+
+}
+
+#prize{
+
+font-size:2.5rem;
+
+}
+
+}
+```
